@@ -25,7 +25,7 @@ public class KruskalAlgorithm {
             }
         }
 
-
+        Collections.sort(minimalSpanningTree);
         return minimalSpanningTree;
     }
 
