@@ -33,7 +33,7 @@ public class Main {
 
         Map<Integer, List<Edge>> graph = new HashMap<>();
 
-        for (int i = 0; i < numberOfNodes; i++) {
+        for (int i = 1; i <= numberOfNodes; i++) {
             graph.putIfAbsent(i, new ArrayList<>());
         }
         for (int i = 0; i < numberOfEdges; i++) {
