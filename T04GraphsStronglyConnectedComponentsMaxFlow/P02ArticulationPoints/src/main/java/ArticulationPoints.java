@@ -34,7 +34,7 @@ public class ArticulationPoints {
                 parents[child] = node;
                 countOfChildren++;
                 discoverArticulationPoints(child, currentDepth + 1, graph, visited, parents, depths, lowPoints, articulationPoints);
-                if (lowPoints[child] >= currentDepth) {
+                if (lowPoints[child] >= currentDepth && parents[node] != -1) {
                     isArticulationPoint = true;
                 }
                 lowPoints[node] = Math.min(lowPoints[node], lowPoints[child]);
@@ -43,8 +43,11 @@ public class ArticulationPoints {
             }
         }
 
-        if ((parents[node] == -1 && countOfChildren > 1) ||
-                (parents[node] != -1 && isArticulationPoint)) {
+        if (parents[node] == -1 && countOfChildren > 1) {
+            isArticulationPoint = true;
+        }
+
+        if (isArticulationPoint) {
             articulationPoints.add(node);
         }
     }
